@@ -1,4 +1,4 @@
-public class AliveCreature implements EmotionalInfluencable {
+public abstract class AliveCreature implements EmotionalInfluencable {
 
     protected String name;
     protected Emotion emotion = Emotion.normal;
