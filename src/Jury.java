@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public class Jury extends AliveCreature {
-    static ArrayList<String> capacity = new ArrayList<String>();
+    static ArrayList<String> capacity_branch = new ArrayList<>();
+    static ArrayList<String> capacity_slate = new ArrayList<>();
+    private static int i = 0;
     Jury(String name, int iq_level) {
         super(name, iq_level);
     }
@@ -15,20 +17,30 @@ public class Jury extends AliveCreature {
     }
 
     void sitOnTheBranch(Branch branch) {
-        if (capacity.size() == branch.capacity) {
+        if (capacity_branch.size() == branch.capacity) {
             System.out.println("Мест на скамейке больше нет!");
         } else {
-            capacity.add(this.name);
+            capacity_branch.add(this.name);
             System.out.println(this.name + " is sitting on the " + branch.name);
         }
     }
 
     void writingOnTheSlate(Slate slate) {
-        if (!slate.flag) {
-            System.out.println(this.name + " is writing on an empty " + slate.name);
-            slate.flag = true;
+        if (capacity_slate.size() == slate.max_amount_of_writings) {
+            System.out.println("На доске больше негде писать! Сотрите что-нибудь с доски");
         } else {
-            System.out.println(this.name + " writes on a " + slate.name + " on which something has already been written");
+            capacity_slate.add(String.valueOf(++i));
+            System.out.println("Присяжный написал на доске. Можно написать еще " + (slate.max_amount_of_writings - capacity_slate.size()) + " раз(-а)");
         }
+    }
+
+    void erasingFromTheSlate(Slate slate) {
+        if (capacity_slate.size() == 0) {
+            System.out.println("Что вы хотите стереть с доски, на которой ничего не написано? Так не получится");
+        } else {
+            capacity_slate.remove(capacity_slate.size() - 1);
+            System.out.println("Вы стерли одну запись. На доске осталось место еще для " + (slate.max_amount_of_writings - capacity_slate.size()) + " записи(-ей)");
+        }
+
     }
 }

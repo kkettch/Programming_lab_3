@@ -2,7 +2,7 @@ import java.util.Objects;
 
 public class Branch {
     protected String name;
-    int capacity;
+    final int capacity;
     Branch (String name, int capacity) {
         this.name = name;
         this.capacity = capacity;

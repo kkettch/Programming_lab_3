@@ -1,8 +1,8 @@
 public class Slate {
-    String name;
-    boolean flag;
-    Slate (String name, boolean flag) {
+     String name;
+     final int max_amount_of_writings;
+    Slate (String name, int max_amount_of_writings) {
         this.name = name;
-        this.flag = flag;
+        this.max_amount_of_writings = max_amount_of_writings;
     }
 }
