@@ -17,7 +17,7 @@ public abstract class AliveCreature implements EmotionalInfluencable {
     public void setEmotion() {
         if (this.name.equals("Alice")) {
             this.emotion = Emotion.pride;
-        } else if (iq_level < 100 && getClass().getSimpleName().equals("Girls")) {
+        } else if (iq_level < 100 && getClass().getSimpleName().equals("Girl")) {
             this.emotion = Emotion.sad;
         } else if (iq_level > 120) {
             this.emotion = Emotion.thoughtful;

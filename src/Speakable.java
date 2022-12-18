@@ -1,3 +1,3 @@
 interface Speakable {
-    void speak();
+    void speak(Word word);
 }
