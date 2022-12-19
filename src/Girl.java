@@ -13,7 +13,7 @@ public class Girl extends AliveCreature implements Speakable{
                 System.out.println(this.name + " said: I know word '" + word.name + "'");
             }
         } else {
-            System.out.println(this.name + " said: I know all the words, including " + word.name);
+            System.out.println(this.name + " said: I know all the words, even difficult ones, including " + word.name);
         }
     }
 
